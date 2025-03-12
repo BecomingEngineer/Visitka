@@ -1,10 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторная работа 1 | Шифратор Морзе</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #1e3c72, #2a5298, #4a90e2);
+      color: white;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    }
+    h2 {
+      color: #ffcc00;
+    }
+    p, pre {
+      text-align: left;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      color: black;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ffcc00;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #ff5733;
+    }
+    pre {
+      background: black;
+      padding: 15px;
+      border-radius: 5px;
+      color: #00ff00;
+      text-align: left;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
-$END$
+<div class="container">
+  <h1>Лабораторная работа №1</h1>
+  <h2>Разработка и тестирование программного обеспечения</h2>
+
+  <h2>Выбранный алгоритм</h2>
+  <p>В данной лабораторной работе реализован алгоритм Азбуки Морзе. Это метод кодирования, использующий точки и тире для представления букв, цифр и некоторых символов.</p>
+
+  <h2>Принцип работы алгоритма</h2>
+  <p>Азбука Морзе кодирует каждую букву или цифру в последовательность точек (короткий сигнал) и тире (длинный сигнал). Пробелы разделяют буквы (короткие паузы) и слова (длинные паузы). Метод широко применяется в телекоммуникациях.</p>
+
+  <h2>Реализация программы</h2>
+  <p>Программа написана на языке Python и состоит из двух функций:</p>
+  <ul>
+    <li><strong>text_to_morse</strong> — преобразует текст в последовательность Азбуки Морзе.</li>
+    <li><strong>morse_to_text</strong> — расшифровывает код Морзе обратно в текст.</li>
+  </ul>
+
+  <pre>
+MORSE_CODE_DICT = {
+    'A': '·—', 'B': '—···', 'C': '—·—·', 'D': '—··', 'E': '·',
+    'F': '··—·', 'G': '——·', 'H': '····', 'I': '··', 'J': '·———',
+    'K': '—·—', 'L': '·—··', 'M': '——', 'N': '—·', 'O': '———',
+    'P': '·——·', 'Q': '——·—', 'R': '·—·', 'S': '···', 'T': '—',
+    'U': '··—', 'V': '···—', 'W': '·——', 'X': '—··—', 'Y': '—·——',
+    'Z': '——··', '1': '·----', '2': '··---', '3': '···--',
+    '4': '····-', '5': '·····', '6': '—····', '7': '——···',
+    '8': '———··', '9': '————·', '0': '—————'
+}
+
+def text_to_morse(text):
+    return ' '.join(MORSE_CODE_DICT.get(char.upper(), char) for char in text)
+
+def morse_to_text(morse):
+    reverse_dict = {v: k for k, v in MORSE_CODE_DICT.items()}
+    return ''.join(reverse_dict.get(code, ' ') for code in morse.split())
+
+# Тестирование
+text = "HELLO WORLD"
+morse_code = text_to_morse(text)
+decoded_text = morse_to_text(morse_code)
+
+print("Исходный текст:", text)
+print("Закодировано в Морзе:", morse_code)
+print("Декодировано обратно:", decoded_text)
+        </pre>
+
+  <h2>Методы тестирования</h2>
+  <ul>
+    <li><strong>Тестирование белого ящика</strong> — проверка внутренней логики кода и покрытие ветвлений.</li>
+    <li><strong>Тестирование черного ящика</strong> — проверка ожидаемых результатов на различных входных данных.</li>
+  </ul>
+
+  <h2>Результаты тестирования</h2>
+  <table>
+    <tr>
+      <th>Исходный текст</th>
+      <th>Код Морзе</th>
+      <th>Декодированный текст</th>
+    </tr>
+    <tr>
+      <td>HELLO</td>
+      <td>···· · ·—·· ·—·· ———</td>
+      <td>HELLO</td>
+    </tr>
+    <tr>
+      <td>WORLD</td>
+      <td>·—— ——— ·—· ·—·· —··</td>
+      <td>WORLD</td>
+    </tr>
+    <tr>
+      <td>12345</td>
+      <td>·---- ··--- ···-- ····- ·····</td>
+      <td>12345</td>
+    </tr>
+  </table>
+
+  <h2>Выводы</h2>
+  <p>Программа корректно кодирует и декодирует текст в Азбуке Морзе. Все тесты прошли успешно, результаты соответствуют ожидаемым. Данный алгоритм может быть использован в различных приложениях, требующих кодирования текста в Морзе.</p>
+
+  <a href="index.html" class="btn">Назад</a>
+</div>
 </body>
 </html>

@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шифратор Морзе | Лабораторные работы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #1e3c72, #2a5298, #4a90e2);
+            color: white;
+            text-align: center;
+            animation: fadeInBody 1.5s ease-in-out;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            font-size: 26px;
+            font-weight: bold;
+            animation: slideDown 1.5s ease-in-out;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.7));
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            color: #f0f0f0;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 12px 25px;
+            width: 60%;
+            background: #ffcc00;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background: #ff5733;
+            transform: scale(1.1);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 14px;
+            animation: slideUp 1.5s ease-in-out;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            transition: transform 0.3s ease-in-out;
+        }
+        h1:hover {
+            transform: scale(1.1);
+            color: #ffcc00;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-$END$
+<header>
+    <h1>Лабораторные работы | Шифратор Морзе</h1>
+</header>
+<div class="container">
+    <h2>Выберите лабораторную работу</h2>
+    <a href="lab1.html" class="btn">Разработка и тестирование программного обеспечения</a>
+    <a href="lab2.html" class="btn">Подготовка документации</a>
+    <a href="lab3.html" class="btn">Подготовка программного обеспечения к тиражированию»</a>
+    <a href="lab4.html" class="btn">Разработка плана сопровождения</a>
+</div>
+<footer>
+    <p>Контакты: example@email.com</p>
+</footer>
 </body>
 </html>
